@@ -15,7 +15,7 @@ namespace task2
             string[] arr = s.Split();
             for(int i = 0; i < arr.Length; i++)
             {
-                double a = int.Parse(arr[i]);
+                double a = double.Parse(arr[i]);
                 for(int j = 2; j <= Math.Sqrt(a); j++)
                 {
                     if(a%j == 0 && a != j)

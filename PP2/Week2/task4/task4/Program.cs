@@ -17,8 +17,19 @@ namespace task4
             string dir1 = Path.Combine(sdir1, fname);
             string dir2 = Path.Combine(sdir2, fname);
             File.Create(dir1);
-            File.Copy(dir1, dir2, true);
-            File.Delete(dir1);
+            try
+            {
+                File.Copy(dir1, dir2);
+            }
+            catch (IOException copyError)
+            {
+                Console.WriteLine(copyError.Message);
+            }
+            foreach (var f in sdir1)
+            {
+                File.Delete(fname);
+            }
+            //File.Delete(dir1);
         }
     }
 }
